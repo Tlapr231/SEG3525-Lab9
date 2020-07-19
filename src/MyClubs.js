@@ -17,7 +17,7 @@ class MyClubs extends Component {
         }
 
         if (myClubs.length !== 0) {
-            
+
             const clubList = myClubs.map(club => {
                 return (
 
@@ -48,14 +48,18 @@ class MyClubs extends Component {
             })
 
             return (
-                <div className="card-columns">
-                    {clubList}
+                <div>
+                    <h1 className="text-center mb-4">My Clubs</h1>
+                    <div className="card-columns">
+                        {clubList}
+                    </div>
                 </div>
             )
         } else {
             return (
                 <div className="text-center my-club-error">
-                    <h3>You don't seem to part of any clubs. Go to "Find a Club" to join a club.</h3>
+                    <h1 className="text-center mb-4">My Clubs</h1>
+                    <h4>Oops! You don't seem to part of any clubs. Go to "Find a Club" to join a club.</h4>
                     <Link to="/clubs" className="btn btn-primary">Find a Club</Link>
                 </div>
             )

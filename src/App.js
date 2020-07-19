@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from './Home'
 import Clubs from './Clubs'
@@ -16,7 +16,9 @@ class App extends Component {
   state = {
     nextClubId: 3,
     nextUserId: 2,
-    user: { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5] }, 
+    language: "English",
+    redirect: null,
+    user: { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5], language: "English" },
     clubs: [
       {
         id: 1,
@@ -114,7 +116,6 @@ class App extends Component {
         ]
       }
     ]
-
   }
 
   deleteClub = (id) => {
@@ -174,22 +175,52 @@ class App extends Component {
       this.setState({
         user
       })
+    } else {
+      this.setState({ redirect: "/" });
     }
   }
 
   render() {
+    if (this.state.redirect) {
+
+      let path = this.state.redirect
+      this.setState({redirect: null})
+
+      return (
+        <div>
+          <BrowserRouter>
+            <Navigation user={this.state.user} userSignOut={this.userSignOut} />
+            <div className="container">
+              <Redirect to={path} />
+
+              <Switch>
+                <Route path="/" exact render={() => <Home user={this.state.user} />} />
+                <Route path="/clubs" exact render={() => <Clubs clubs={this.state.clubs} />} />
+                <Route path="/profile" exact render={() => <Profile user={this.state.user} />} />
+                <Route path="/myclubs" exact render={() => <MyClubs user={this.state.user} clubs={this.state.clubs} />} />
+                <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />
+                <Route path="/signout" exact render={() => <Signout userSignOut />} />
+                <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+    }
+
     return (
       <div>
         <BrowserRouter>
           <Navigation user={this.state.user} userSignOut={this.userSignOut} />
           <div className="container">
+
             <Switch>
               <Route path="/" exact render={() => <Home user={this.state.user} />} />
               <Route path="/clubs" exact render={() => <Clubs clubs={this.state.clubs} />} />
               <Route path="/profile" exact render={() => <Profile user={this.state.user} />} />
               <Route path="/myclubs" exact render={() => <MyClubs user={this.state.user} clubs={this.state.clubs} />} />
               <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />
-              <Route path="/signout" exact render={() => <Signout userSignOut={this.userSignOut} />} />
+              <Route path="/signout" exact render={() => <Signout userSignOut />} />
               <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
             </Switch>
           </div>
