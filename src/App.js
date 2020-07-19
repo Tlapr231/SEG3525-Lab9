@@ -16,7 +16,7 @@ class App extends Component {
   state = {
     nextClubId: 3,
     nextUserId: 2,
-    user: { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5] },
+    user: { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5] }, 
     clubs: [
       {
         id: 1,
