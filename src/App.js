@@ -180,6 +180,12 @@ class App extends Component {
     }
   }
 
+  setLanguage = (language) => {
+    this.setState({
+      language
+    })
+  }
+
   render() {
     if (this.state.redirect) {
 
@@ -189,7 +195,7 @@ class App extends Component {
       return (
         <div>
           <BrowserRouter>
-            <Navigation user={this.state.user} userSignOut={this.userSignOut} />
+            <Navigation user={this.state.user} userSignOut={this.userSignOut} language={this.state.language} setLanguage={this.setLanguage} />
             <div className="container">
               <Redirect to={path} />
 
@@ -211,7 +217,7 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <Navigation user={this.state.user} userSignOut={this.userSignOut} />
+          <Navigation user={this.state.user} userSignOut={this.userSignOut} language={this.state.language} setLanguage={this.setLanguage} />
           <div className="container">
 
             <Switch>
