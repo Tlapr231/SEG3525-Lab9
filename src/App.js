@@ -10,6 +10,7 @@ import Signin from './Signin'
 import Signout from './Signout'
 import Signup from './SignUp'
 import CalendarTab from './CalendarTab.js'
+import Message from './Message.js'
 
 import './Style.css'
 
@@ -28,7 +29,8 @@ class App extends Component {
         members: 25,
         location: 'some street',
         rating: 4.5,
-        activity: [1, 2, 3]
+        activity: [1, 2, 3],
+        annoucements: [1]
       },
       {
         id: 2,
@@ -37,7 +39,8 @@ class App extends Component {
         members: 59,
         location: 'Ray Friel Community Center',
         rating: 3.9,
-        activity: [4, 5, 6, 7]
+        activity: [4, 5, 6, 7],
+        annoucements: []
       },
       {
         id: 3,
@@ -46,7 +49,8 @@ class App extends Component {
         members: 14,
         location: 'Town Hall',
         rating: 4.2,
-        activity: [8]
+        activity: [8],
+        annoucements: []
       },
       {
         id: 4,
@@ -55,7 +59,8 @@ class App extends Component {
         members: 29,
         location: 'Some random field',
         rating: 5,
-        activity: [9, 10, 11, 12]
+        activity: [9, 10, 11, 12],
+        annoucements: [2]
       },
       {
         id: 5,
@@ -64,7 +69,8 @@ class App extends Component {
         members: 62,
         location: 'Baseball court over there',
         rating: 4.0,
-        activity: [13, 14]
+        activity: [13, 14],
+        annoucements: [3]
       },
       {
         id: 6,
@@ -73,7 +79,8 @@ class App extends Component {
         members: 12,
         location: 'Community center room',
         rating: 4.8,
-        activity: [15, 16]
+        activity: [15, 16],
+        annoucements: []
       },
       {
         id: 7,
@@ -82,7 +89,8 @@ class App extends Component {
         members: 5,
         location: 'Kitchen?',
         rating: 3.8,
-        activity: [17, 18]
+        activity: [17, 18],
+        annoucements: []
       },
       {
         id: 8,
@@ -91,7 +99,8 @@ class App extends Component {
         members: 10,
         location: 'At your own home',
         rating: 5.0,
-        activity: [19, 20]
+        activity: [19, 20],
+        annoucements: []
       },
       {
         id: 9,
@@ -100,7 +109,8 @@ class App extends Component {
         members: 10,
         location: 'A building on a street',
         rating: 3.2,
-        activity: [21, 22, 23, 24, 25]
+        activity: [21, 22, 23, 24, 25],
+        annoucements: []
       }
     ],
     users: [
@@ -255,7 +265,7 @@ class App extends Component {
                 <Route path="/signout" exact render={() => <Signout userSignOut />} />
                 <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
                 <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
-
+                <Route path="/messages" exact render={() => <Message user={this.state.user} conversations={this.state.conversations}  users={this.state.users}/>} />
               </Switch>
             </div>
           </BrowserRouter>
@@ -278,6 +288,7 @@ class App extends Component {
               <Route path="/signout" exact render={() => <Signout userSignOut />} />
               <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
               <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
+              <Route path="/messages" exact render={() => <Message user={this.state.user} conversations={this.state.conversations}  users={this.state.users}/>} />
             </Switch>
           </div>
         </BrowserRouter>

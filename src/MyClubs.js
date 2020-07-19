@@ -39,7 +39,7 @@ class MyClubs extends Component {
                                     <p>{club.location}</p>
                                     <p className="card-description"><b>Description :</b></p>
                                     <p>{club.description}</p>
-                                    <a href="#" className="btn btn-primary">View Club</a>
+                                    <button href="#" className="btn btn-primary">View Club</button>
                                 </div>
                             </div>
                         </div>

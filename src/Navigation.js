@@ -85,7 +85,7 @@ class Navigation extends Component {
                             </li>
                             <li className="nav-item mr-auto">
                                 {/* https://www.iconfinder.com/icons/326663/language_web_icon */}
-                                <a className="open-button nav-link" onClick={() => { this.handleForm() }}><img src={languageIcon} alt="" width="16px" /> Language</a>
+                                <button className="open-button nav-link btn btn-link" onClick={() => { this.handleForm() }}><img src={languageIcon} alt="" width="16px" /> Language</button>
 
                                 <div className="form-popup" id="myForm">
                                     <form action="/action_page.php" className="form-container bg-dark text-white">
@@ -147,7 +147,7 @@ class Navigation extends Component {
                             <li className="nav-item mr-auto">
 
                                 {/* https://www.iconfinder.com/icons/326663/language_web_icon */}
-                                <a className="open-button nav-link" onClick={() => { this.handleForm() }}><img src={languageIcon} alt="" width="16px" /> Language</a>
+                                <button className="open-button nav-link btn btn-link" onClick={() => { this.handleForm() }}><img src={languageIcon} alt="" width="16px" /> Language</button>
 
                                 <div className="form-popup" id="myForm">
                                     <form action="/action_page.php" className="form-container bg-dark text-white">

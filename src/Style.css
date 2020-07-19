@@ -1,56 +1,62 @@
 .card .row p {
-    margin: 0;
+  margin: 0;
 }
 
 .card .row {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .card .row h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .card-description {
-    margin: 0;
+  margin: 0;
 }
 
 .search {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .my-club-error {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .container {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 /* Folowing 3 styles are from https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html */
 select:required:invalid {
-    color: #666;
-  }
-  option[value=""][disabled] {
-    display: none;
-  }
-  option {
-    color: #000;
-  }
+  color: #666;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: #000;
+}
 
 
-  /* Code for popup form heavily edited from : https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup_form */
-  
-  /* The popup form - hidden by default */
-  .form-popup {
-    display: none;
-    position: fixed;
-    top: 62px;
-    right: 5px;
-    z-index: 9;
-  }
-  
-  /* Add styles to the form container */
-  .form-container {
-    width: 200px;
-    padding: 10px;
-  }
+/* Code for popup form heavily edited from : https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup_form */
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 62px;
+  right: 5px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  width: 200px;
+  padding: 10px;
+}
+
+.participants {
+  display: inline-block;
+}
