@@ -40,9 +40,9 @@ class Clubs extends Component {
       return (
         <div className="find-a-club">
 
-          {/* From https://getbootstrap.com/docs/4.0/components/input-group/ */}
+            {/* From https://getbootstrap.com/docs/4.0/components/input-group/ */}
           <div className="text-center search row">
-            <div className="col-3"></div>
+          <div className="col-3"></div>
 
             <div class="input-group col-6">
               <div class="input-group-prepend">
@@ -50,7 +50,7 @@ class Clubs extends Component {
               </div>
 
               <input type="text" class="form-control" placeholder="Search..." aria-label="Default" aria-describedby="inputGroup-sizing-default" />
-
+              
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">Search</button>
               </div>
