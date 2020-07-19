@@ -140,7 +140,7 @@ class Navigation extends Component {
 
                                 <div className="form-popup" id="myForm">
                                     <form action="/action_page.php" className="form-container bg-dark text-white">
-                                        <h1>Language</h1>
+                                        <h3>Language</h3>
 
                                         <select onChange={() => {this.handleChange()}} className="custom-select" id="language">
                                             <option value="English" id="formEnglish">English</option>

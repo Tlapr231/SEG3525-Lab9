@@ -9,13 +9,14 @@ import MyClubs from './MyClubs'
 import Signin from './Signin'
 import Signout from './Signout'
 import Signup from './SignUp'
+import CalendarTab from './CalendarTab.js'
 
 import './Style.css'
 
 class App extends Component {
   state = {
     nextClubId: 3,
-    nextUserId: 2,
+    nextUserId: 4,
     language: "English",
     redirect: null,
     user: { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5], language: "English" },
@@ -103,7 +104,9 @@ class App extends Component {
       }
     ],
     users: [
-      { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4] },
+      { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5], language: "English"  },
+      { id: 2, name: 'Lorem', lastname: 'Ipsum', username: 'Lorem', password: 'ipsum', email: "lP@gmail.com", age: 100, gender: 'Other', clubs: [1, 4], language: "French" },
+      { id: 3, name: 'Dylan', lastname: 'Mondo', username: 'DM', password: '1234', email: "Dm@gmail.com", age: 23, gender: 'Female', clubs: [1, 4, 9], language: "English" }
     ],
     conversations: [
       {
@@ -113,8 +116,52 @@ class App extends Component {
           { userId: 1, message: "Hello" },
           { userId: 2, message: "How are you doing?" },
           { userId: 1, message: "Great." },
+          { userId: 2, message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+          { userId: 2, message: ":p" },
+        ]
+      },
+      {
+        id: 2,
+        participants: [1, 2, 3],
+        messages: [
+          { userId: 1, message: "Hello" },
+          { userId: 3, message: "Hi" },
+          { userId: 2, message: "How are you doing?" },
+          { userId: 1, message: "Great." },
+          { userId: 3, message: "OK." },
+          { userId: 2, message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+          { userId: 2, message: ":p" },
+          { userId: 1, message: "Lol" },
+          { userId: 3, message: "haHa" },
         ]
       }
+    ],
+    events: [
+      {id: 1, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Practice", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 2, date:new Date("Tue Jul 23 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Game", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 3, date:new Date("Tue Jul 28 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Practice", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 4, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Donec", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 5, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"elementum", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 6, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Phasellus", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 7, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"sollicitudin", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 8, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"platea", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 9, date:new Date("Tue Jul 20 2020 18:00:00 GMT-0400 (Eastern Daylight Time)"), name:"Practive", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 10, date:new Date("Tue Jul 21 2020 18:00:00 GMT-0400 (Eastern Daylight Time)"), name:"Practice", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 11, date:new Date("Tue Jul 24 2020 18:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Competitive Game", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 12, date:new Date("Tue Jul 26 2020 18:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Competitive Game", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 13, date:new Date("Tue Jul 26 2020 9:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Practice", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 14, date:new Date("Tue Jul 26 2020 10:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Game", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 15, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"sapien", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 16, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"Phasellus", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 17, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"sagittis", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 18, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"enim", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 19, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"semper", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 20, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"tempus", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 21, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"lacinia", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 22, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"porta", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 23, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"iaculis", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 24, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"nec", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+      {id: 25, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"feugiat", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
     ]
   }
 
@@ -207,6 +254,8 @@ class App extends Component {
                 <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />
                 <Route path="/signout" exact render={() => <Signout userSignOut />} />
                 <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
+                <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
+
               </Switch>
             </div>
           </BrowserRouter>
@@ -228,6 +277,7 @@ class App extends Component {
               <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />
               <Route path="/signout" exact render={() => <Signout userSignOut />} />
               <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
+              <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
             </Switch>
           </div>
         </BrowserRouter>
