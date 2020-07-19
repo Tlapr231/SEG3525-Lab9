@@ -85,7 +85,18 @@ class Navigation extends Component {
                             </li>
                             <li className="nav-item mr-auto">
                                 {/* https://www.iconfinder.com/icons/326663/language_web_icon */}
-                                <Link to="/help" className="nav-link"><img src={languageIcon} alt="" width="16px" /> Language</Link>
+                                <a className="open-button nav-link" onClick={() => { this.handleForm() }}><img src={languageIcon} alt="" width="16px" /> Language</a>
+
+                                <div className="form-popup" id="myForm">
+                                    <form action="/action_page.php" className="form-container bg-dark text-white">
+                                        <h3>Language</h3>
+
+                                        <select onChange={() => {this.handleChange()}} className="custom-select" id="language">
+                                            <option value="English" id="formEnglish">English</option>
+                                            <option value="Français" id="formFrench">Français</option>
+                                        </select>
+                                    </form>
+                                </div>
                             </li>
                         </ul>
 

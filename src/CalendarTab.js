@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 
+import cat from './images/cutecat.jpg'
+
 // PROPS { clubs, user, events }
 class CalendarTab extends Component {
     state = {
@@ -14,6 +16,18 @@ class CalendarTab extends Component {
     onChange = date => this.setState({ date })
 
     render() {
+
+        if (this.props.user.id <= 0) {
+            return (
+                <div className="text-center">
+                    <h1 className="text-center mb-4">Calendar</h1>
+                    <h4>We’re sorry we couldn’t find what you’re looking for. Let us make it up to you with a picture of a cute cat.</h4>
+                    <img src={cat} alt="Cute Cat" width="600px"/>
+                    <p></p>
+                    <Link to="/" className="btn btn-primary">Go back home</Link>
+                </div>
+            );
+        }
 
         let myClubs = []
         let myEvents = []
