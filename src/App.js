@@ -57,7 +57,7 @@ class App extends Component {
       {
         id: 5,
         name: 'Baseball 13+',
-        description: 'Baseball for kids aged 13+. there are 3 age groups: 13-14, 15-16, 17-18. We practice for 30 mins then get to a game with an opsing team.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, nunc vitae elementum tristique, libero est iaculis tortor, in interdum urna est nec mi. Morbi venenatis nulla venenatis magna feugiat tincidunt. Nunc lobortis velit id ipsum interdum condimentum. Morbi elit justo, ullamcorper quis ligula at, eleifend convallis mauris. Quisque bibendum diam sit amet finibus dignissim. Duis lacus augue, molestie at dictum ut, laoreet eget leo. Aliquam pharetra eget arcu at viverra. Aliquam a lorem sit amet urna sodales faucibus ac ac nibh. Vivamus scelerisque pharetra sem eu tincidunt. Suspendisse vehicula auctor arcu, nec pharetra nisl commodo vitae.',
         members: 62,
         location: 'Baseball court over there',
         rating: 4.0,
