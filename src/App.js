@@ -292,7 +292,7 @@ class App extends Component {
               <Route path="/myclubs" exact render={() => <MyClubs user={this.state.user} clubs={this.state.clubs} />} />
               <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />
               <Route path="/signout" exact render={() => <Signout userSignOut />} />
-              <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
+              <Route path="/signup" exact render={() => <Signup addUser={this.addUser} language={this.state.language}/>} />
               <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
               <Route path="/messages" exact render={() => <Message user={this.state.user} conversations={this.state.conversations}  users={this.state.users}/>} />
               <Route path="/announcement" exact render={() => <Announcement user={this.state.user} clubs={this.state.clubs} allAnnoucements={this.state.allAnnoucements} />} />
