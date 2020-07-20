@@ -22,7 +22,7 @@ class App extends Component {
     nextUserId: 4,
     language: "English",
     redirect: null,
-    user: { id: 1, name: 'Thierry', lastname: 'Laprade', username: 'admin', password: 'password', email: "test@gmail.com", age: 20, gender: 'Male', clubs: [1, 4, 5], language: "English" },
+    user: { id: 0, name: '', lastname: '', username: '', password: '', email: "", age: 0, gender: '', clubs: [], language: "" },
     clubs: [
       {
         id: 1,
@@ -250,6 +250,15 @@ class App extends Component {
     })
   }
 
+  joinClub = (id) => {
+    let user = this.state.user
+    let clubs = [...this.state.user.clubs, id];
+    user.clubs = clubs
+    this.setState({
+      user
+    });
+  }
+
   render() {
     if (this.state.redirect) {
 
@@ -265,7 +274,7 @@ class App extends Component {
 
               <Switch>
                 <Route path="/" exact render={() => <Home user={this.state.user} />} />
-                <Route path="/clubs" exact render={() => <Clubs clubs={this.state.clubs} />} />
+                <Route path="/clubs" exact render={() => <Clubs clubs={this.state.clubs} joinClub={this.joinClub} />} />
                 <Route path="/profile" exact render={() => <Profile user={this.state.user} />} />
                 <Route path="/myclubs" exact render={() => <MyClubs user={this.state.user} clubs={this.state.clubs} />} />
                 <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />
@@ -288,7 +297,7 @@ class App extends Component {
 
             <Switch>
               <Route path="/" exact render={() => <Home user={this.state.user} />} />
-              <Route path="/clubs" exact render={() => <Clubs clubs={this.state.clubs} />} />
+              <Route path="/clubs" exact render={() => <Clubs clubs={this.state.clubs} joinClub={this.joinClub} />} />
               <Route path="/profile" exact render={() => <Profile user={this.state.user} />} />
               <Route path="/myclubs" exact render={() => <MyClubs user={this.state.user} clubs={this.state.clubs} />} />
               <Route path="/signin" exact render={() => <Signin user={this.state.user} userSignIn={this.userSignIn} />} />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//PROPS { clubs, deleteClub }
+//PROPS { clubs, joinClub }
 class Clubs extends Component {
   state = {
     filter: null
@@ -8,24 +8,28 @@ class Clubs extends Component {
 
   handleChange = (e) => {
     this.setState({
-        filter: e.target.value
+      filter: e.target.value
     });
-}
+  }
+
+  handleClub = (e) => {
+    this.props.joinClub(parseInt(e.target.value))
+  }
 
   render() {
-    
+
     let filterClubs = []
-    
-    if (this.state.filter !== null){
+
+    if (this.state.filter !== null) {
 
       let clubName = null
-      for (let i = 0; i < this.props.clubs.length; i++){
+      for (let i = 0; i < this.props.clubs.length; i++) {
         clubName = this.props.clubs[i].name.toLowerCase()
-        if (clubName.includes(this.state.filter.toLowerCase())){
+        if (clubName.includes(this.state.filter.toLowerCase())) {
           filterClubs.push(this.props.clubs[i])
         }
       }
-      
+
     } else {
       filterClubs = this.props.clubs
     }
@@ -51,7 +55,8 @@ class Clubs extends Component {
                 <p>{club.location}</p>
                 <p className="card-description"><b>Description :</b></p>
                 <p>{club.description}</p>
-                <button href="#" className="btn btn-primary">View Club</button>
+                <button href="#" className="btn btn-secondary mr-1">View Club</button>
+                <button href="#" className="btn btn-primary" value={club.id} onClick={this.handleClub}>Join Club</button>
               </div>
             </div>
           </div>
