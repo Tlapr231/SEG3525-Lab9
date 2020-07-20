@@ -11,6 +11,7 @@ import Signout from './Signout'
 import Signup from './SignUp'
 import CalendarTab from './CalendarTab.js'
 import Message from './Message.js'
+import Announcement from './Announcement.js'
 
 import './Style.css'
 
@@ -172,6 +173,11 @@ class App extends Component {
       {id: 23, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"iaculis", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
       {id: 24, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"nec", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
       {id: 25, date:new Date("Tue Jul 21 2020 20:30:00 GMT-0400 (Eastern Daylight Time)"), name:"feugiat", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in nisl ut mi porta ultrices. Quisque viverra nisi ut arcu mattis sollicitudin. Nullam placerat pulvinar tellus non feugiat. Phasellus nec nisi non eros pharetra egestas."},
+    ],
+    allAnnoucements: [
+      {id: 1, name: "Welcome", message:"Greatings from us at the soccer club."},
+      {id: 2, name: "Welcome", message:"Nunc sit amet mi velit. Quisque non volutpat dolor, sed tempor justo."},
+      {id: 3, name: "Welcome", message:"Praesent hendrerit quam ac mollis sagittis. Morbi non libero non velit vestibulum efficitur. "},
     ]
   }
 
@@ -289,6 +295,7 @@ class App extends Component {
               <Route path="/signup" exact render={() => <Signup addUser={this.addUser} />} />
               <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
               <Route path="/messages" exact render={() => <Message user={this.state.user} conversations={this.state.conversations}  users={this.state.users}/>} />
+              <Route path="/announcement" exact render={() => <Announcement user={this.state.user} clubs={this.state.clubs} allAnnoucements={this.state.allAnnoucements} />} />
             </Switch>
           </div>
         </BrowserRouter>

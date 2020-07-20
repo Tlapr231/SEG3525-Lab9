@@ -12,6 +12,7 @@ import myclubs from './images/myclubs.png'
 import messages from './images/message.png'
 import profile from './images/profile.png'
 import signout from './images/signout.png'
+import bell from './images/bell.png'
 
 //PROPS { user, userSignOut, language, setLanguage }
 class Navigation extends Component {
@@ -124,6 +125,10 @@ class Navigation extends Component {
                             <li className="nav-item">
                                 {/* https://www.iconfinder.com/icons/326713/calendar_date_today_icon */}
                                 <Link to="/calendar" className="nav-link"><img src={calendar} alt="" width="16px" /> Calendar</Link>
+                            </li>
+                            <li className="nav-item">
+                                {/* https://www.iconfinder.com/icons/383181/bell_icon */}
+                                <Link to="/announcement" className="nav-link"><img src={bell} alt="" width="16px" /> Announcement</Link>
                             </li>
                             <li className="nav-item">
                                 {/* https://www.iconfinder.com/icons/298865/search_icon */}
