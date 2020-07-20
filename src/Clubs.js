@@ -2,11 +2,35 @@ import React, { Component } from 'react';
 
 //PROPS { clubs, deleteClub }
 class Clubs extends Component {
+  state = {
+    filter: null
+  }
 
+  handleChange = (e) => {
+    this.setState({
+        filter: e.target.value
+    });
+}
 
   render() {
+    
+    let filterClubs = []
+    
+    if (this.state.filter !== null){
+
+      let clubName = null
+      for (let i = 0; i < this.props.clubs.length; i++){
+        clubName = this.props.clubs[i].name.toLowerCase()
+        if (clubName.includes(this.state.filter.toLowerCase())){
+          filterClubs.push(this.props.clubs[i])
+        }
+      }
+      
+    } else {
+      filterClubs = this.props.clubs
+    }
     //edited from https://getbootstrap.com/docs/4.0/components/card/
-    const clubList = this.props.clubs.map(club => {
+    const clubList = filterClubs.map(club => {
       return (
 
         <div className="card-item" key={club.id}>
@@ -39,18 +63,20 @@ class Clubs extends Component {
 
       return (
         <div className="find-a-club">
+          <h1 className="text-center mb-4">Clubs</h1>
 
-            {/* From https://getbootstrap.com/docs/4.0/components/input-group/ */}
+
+          {/* From https://getbootstrap.com/docs/4.0/components/input-group/ */}
           <div className="text-center search row">
-          <div className="col-3"></div>
+            <div className="col-3"></div>
 
             <div class="input-group col-6">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-search"></i></span>
               </div>
 
-              <input type="text" class="form-control" placeholder="Search..." aria-label="Default" aria-describedby="inputGroup-sizing-default" />
-              
+              <input type="text" class="form-control" placeholder="Search..." onChange={this.handleChange} />
+
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">Search</button>
               </div>
@@ -68,6 +94,7 @@ class Clubs extends Component {
     } else {
       return (
         <div>
+          <h1 className="text-center mb-4">My Clubs</h1>
           <p className="center">We're sorry about that! There seems to be no clubs available at this moment. Try again later.</p>
         </div>
       )

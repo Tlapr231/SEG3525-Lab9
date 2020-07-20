@@ -12,6 +12,7 @@ import Signup from './SignUp'
 import CalendarTab from './CalendarTab.js'
 import Message from './Message.js'
 import Announcement from './Announcement.js'
+import Error from './Error.js'
 
 import './Style.css'
 
@@ -296,6 +297,7 @@ class App extends Component {
               <Route path="/calendar" exact render={() => <CalendarTab clubs={this.state.clubs} user={this.state.user} events={this.state.events} />} />
               <Route path="/messages" exact render={() => <Message user={this.state.user} conversations={this.state.conversations}  users={this.state.users}/>} />
               <Route path="/announcement" exact render={() => <Announcement user={this.state.user} clubs={this.state.clubs} allAnnoucements={this.state.allAnnoucements} />} />
+              <Route path="/" render={() => <Error/>} />
             </Switch>
           </div>
         </BrowserRouter>
